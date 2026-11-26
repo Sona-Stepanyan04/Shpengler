@@ -840,6 +840,40 @@
             place-items: center;
         }
 
+        .civilization-art {
+            width: min(42vw, 500px);
+            aspect-ratio: 1.08;
+            margin: auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 48% 48% 16px 16px;
+            background: radial-gradient(ellipse at 50% 34%, #fff5d8 0%, #ead3a8 45%, #d2b184 100%);
+            box-shadow: 0 24px 70px rgba(93, 65, 34, .16), inset 0 0 0 1px rgba(133, 95, 48, .16);
+        }
+
+        .civilization-art::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(180deg, rgba(255, 246, 222, .08), rgba(84, 55, 32, .16));
+        }
+
+        .civilization-art svg { width: 100%; height: 100%; display: block; }
+
+        .civilization-caption {
+            position: absolute;
+            z-index: 1;
+            left: 50%;
+            bottom: 18px;
+            transform: translateX(-50%);
+            color: #fff5df;
+            font: 12px var(--serif);
+            letter-spacing: .08em;
+            white-space: nowrap;
+            text-shadow: 0 2px 9px rgba(45, 31, 18, .75);
+        }
+
         .orbit-ring {
             position: absolute;
             border: 1px solid rgba(158, 111, 56, .35);
@@ -1956,7 +1990,7 @@
                 width: 165px;
             }
 
-            .orbit-chart {
+            .civilization-art {
                 width: min(72vw, 360px);
             }
 
@@ -2344,14 +2378,44 @@
                     <div><b>Կոպեռնիկոսյան</b><span>Բազմաթիվ կենտրոններ · տարբեր կենսագրություններ</span></div>
                 </div>
             </div>
-            <div class="orbit-chart slide-inner delay-2" aria-label="Տարբեր մշակույթների ուղեծրերի պատկեր">
-                <div class="orbit-ring"></div>
-                <div class="orbit-ring r2"></div>
-                <div class="orbit-ring r3"></div>
-                <div class="orbit-center">Պատմության<br>բազմակենտրոն<br>աշխարհ</div>
-                <span class="orbit-token t1">Եգիպտոս</span><span class="orbit-token t2">Չինաստան</span><span
-                    class="orbit-token t3">Հունաստան</span><span class="orbit-token t4">Արևմուտք</span><span
-                    class="orbit-token t5">Մեքսիկա</span><span class="orbit-token t6">Հնդկաստան</span>
+            <figure class="civilization-art slide-inner delay-2" aria-label="Տարբեր քաղաքակրթությունների ոճավորված ճարտարապետական պատկեր">
+                <svg viewBox="0 0 520 480" role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="civSky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f8e7bb"/><stop offset="1" stop-color="#b98a56"/></linearGradient>
+                        <linearGradient id="civStone" x1="0" y1="0" x2="0.8" y2="1"><stop stop-color="#fff0cc"/><stop offset="1" stop-color="#9b6e43"/></linearGradient>
+                        <radialGradient id="civSun"><stop stop-color="#fff8dc"/><stop offset="1" stop-color="#dcae65" stop-opacity="0"/></radialGradient>
+                    </defs>
+                    <rect width="520" height="480" fill="url(#civSky)"/>
+                    <circle cx="266" cy="150" r="150" fill="url(#civSun)"/>
+                    <circle cx="266" cy="150" r="64" fill="none" stroke="#fff1ca" stroke-opacity=".62" stroke-width="1.5"/>
+                    <path d="M0 327 Q96 278 184 316 T350 299 T520 321 V480 H0Z" fill="#9d7149" opacity=".52"/>
+                    <path d="M0 368 Q105 333 203 358 T389 342 T520 363 V480 H0Z" fill="#6e4c35" opacity=".55"/>
+                    <!-- pyramid and ancient Egyptian pylons -->
+                    <path d="M22 331 96 204 171 331Z" fill="url(#civStone)" stroke="#815c3c" stroke-opacity=".48" stroke-width="2"/>
+                    <path d="M96 204 171 331H96Z" fill="#b88b5d" opacity=".72"/>
+                    <path d="M42 331V292H58V331M133 331V292H149V331M35 292H66V284H38ZM126 292H157V284H129Z" fill="#ead0a0" stroke="#805b3b" stroke-width="2"/>
+                    <!-- classical temple -->
+                    <path d="M168 313 235 270 302 313Z" fill="#f2ddb2" stroke="#916b46" stroke-width="2"/>
+                    <path d="M181 319H290V333H181Z" fill="#c39b69"/>
+                    <path d="M190 319V370M211 319V370M238 319V370M260 319V370M282 319V370" stroke="#f6e7c9" stroke-width="12"/>
+                    <path d="M178 370H294V381H178Z" fill="#d7b583"/>
+                    <!-- Byzantine dome and minaret -->
+                    <path d="M302 347Q302 301 351 301Q400 301 400 347V381H302Z" fill="#d7b681" stroke="#76553a" stroke-width="2"/>
+                    <path d="M315 301Q351 242 387 301Z" fill="#986e49" stroke="#76553a" stroke-width="2"/>
+                    <path d="M351 240V224M346 224H356" stroke="#725039" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M405 380V274L418 251 431 274V380Z" fill="#e4c99a" stroke="#76553a" stroke-width="2"/>
+                    <path d="M402 293H434M402 307H434" stroke="#8b6341" stroke-width="4"/>
+                    <!-- distant pagoda silhouette -->
+                    <g fill="#76543a" opacity=".82">
+                        <path d="M454 355H508L501 347H461Z M458 345H504L498 337H464Z M462 335H500L494 328H468Z M466 326H496L491 320H471Z"/>
+                        <path d="M479 320V286H485V320M482 286V277"/>
+                    </g>
+                    <!-- architectural light paths -->
+                    <path d="M18 397Q260 348 503 394" fill="none" stroke="#f7e3b9" stroke-opacity=".58" stroke-width="2"/>
+                    <path d="M31 418Q260 378 488 417" fill="none" stroke="#f7e3b9" stroke-opacity=".32" stroke-width="1.5"/>
+                    <g fill="#fff2cf" opacity=".85"><circle cx="119" cy="157" r="2"/><circle cx="413" cy="183" r="2.5"/><circle cx="205" cy="112" r="1.5"/><circle cx="355" cy="119" r="1.5"/></g>
+                </svg>
+                <figcaption class="civilization-caption">ՄՇԱԿՈՒՅԹՆԵՐԻ ԲԱԶՄԱԶԱՆ ԱՇԽԱՐՀԸ</figcaption>
             </div>
         </div>
     </section>
@@ -2451,7 +2515,7 @@
                 <div class="world-tag">Մոգական · արաբական, բյուզանդական, վաղ քրիստոնեական</div>
                 <h2>Աշխարհը՝<br>որպես քարանձավ</h2>
                 <p class="world-description">Այս մշակույթի նախասիմվոլը «աշխարհ-քարանձավն» է։ Այն արտահայտում է փակ տարածության գաղափարը, որտեղ աշխարհը ընկալվում է լույսի և խավարի խիստ հակադրության միջոցով։</p>
-                <div class="world-examples"><span>Ալգեբրա</span><span>Գմբեթավոր ճարտարապետություն</span><span>Միաստվածային կրոններ</span><span>Կրոնական համայնք</span>
+                <div class="world-examples"><span>Հանրահաշիվ</span><span>Գմբեթավոր ճարտարապետություն</span><span>Միաստվածային կրոններ</span><span>Կրոնական համայնք</span>
                 </div>
             </div>
             <div class="world-art slide-inner delay-2">
